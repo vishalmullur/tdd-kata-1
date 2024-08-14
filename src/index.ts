@@ -1,6 +1,6 @@
 export const add = (numberString: string) => {
   // Check to see if there is a customer delimiter at the beginning
-  const match = numberString.match(/\/\/([^\n])\n/);
+  const match = numberString.match(/\/\/([^\n]+)\n/);
 
   if (match) {
     const [, numbersPart] = numberString.split('\n');

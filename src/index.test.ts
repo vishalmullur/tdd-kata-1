@@ -27,3 +27,11 @@ test('Function with custom delimiter does not accept any negative numbers', () =
 test('Function ignores numbers greater than 1000', () => {
   expect(add('1,2,3000,32,5')).toBe(40);
 })
+
+test('Function accepts custom delimiters with any length supplied at beginning', () => {
+  expect(add('//****\n1****2****3****4****5')).toBe(15);
+})
+
+test('Function accepts custom delimiters with any length supplied at beginning', () => {
+  expect(add('//&&\n1&&2&&3&&4&&5')).toBe(15);
+})
