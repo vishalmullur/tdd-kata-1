@@ -15,3 +15,11 @@ test('Function accepts newline \\n as delimiter', () => {
 test('Function accepts custom delimiters supplied at beginning', () => {
   expect(add('//;\n1;2;3;4;5')).toBe(15);
 })
+
+test('Function does not accept any negative numbers', () => {
+  expect(add('1,2,3,-4')).toBe('Negative numbers not allowed: [-4]')
+})
+
+test('Function with custom delimiter does not accept any negative numbers', () => {
+  expect(add('//;\n1;2;3;-4;-5')).toBe('Negative numbers not allowed: [-4,-5]')
+})

@@ -4,9 +4,20 @@ export const add = (numberString: string) => {
 
   if (match) {
     const [, numbersPart] = numberString.split('\n');
-    return numbersPart.split(match[1]).reduce((acc, cur) => acc + (+cur), 0);  
+    return getAddedValue(numbersPart, match[1]);
+  }
+  
+  // No custom delimiter, use '\n' or ',' as delimiters
+  return getAddedValue(numberString, /[\n,]+/g);
+}
+
+const getAddedValue = (numbersPart: string, delimiter: RegExp | string) => {
+  const negativeNumbers = numbersPart.split(delimiter).filter((number) => (+number) < 0);
+  if (negativeNumbers.length > 0) {
+    return `Negative numbers not allowed: [${negativeNumbers}]`;
   }
 
-  // No custom delimiter, use '\n' or ',' as delimiters
-  return numberString.split(/[\n,]+/g).reduce((acc, cur) => acc + (+cur), 0);
+  return numbersPart.split(delimiter).reduce((acc, cur) => {
+    return acc + (+cur);
+  }, 0);
 }
