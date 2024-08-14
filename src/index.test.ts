@@ -7,3 +7,7 @@ test('Function adds two numbers from a string', () => {
 test('Function adds multiple numbers', () => {
   expect(add('1,2,3,4,5')).toBe(15);
 })
+
+test('Function accepts newline \\n as delimiter', () => {
+  expect(add('1\n2\n3,4,5')).toBe(15);
+})
