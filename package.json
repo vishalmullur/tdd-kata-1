@@ -1,0 +1,8 @@
+{
+  "name": "tdd-kata",
+  "version": "0.0.1",
+  "description": "Small project to exhibit TDD with TypeScipt and Jest",
+  "main": "src/index.ts",
+  "author": "Vishal Mullur",
+  "license": "MIT"
+}
