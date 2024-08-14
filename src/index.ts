@@ -18,6 +18,10 @@ const getAddedValue = (numbersPart: string, delimiter: RegExp | string) => {
   }
 
   return numbersPart.split(delimiter).reduce((acc, cur) => {
+    if (+cur > 1000) {
+      return acc;
+    }
+
     return acc + (+cur);
   }, 0);
 }

@@ -23,3 +23,7 @@ test('Function does not accept any negative numbers', () => {
 test('Function with custom delimiter does not accept any negative numbers', () => {
   expect(add('//;\n1;2;3;-4;-5')).toBe('Negative numbers not allowed: [-4,-5]')
 })
+
+test('Function ignores numbers greater than 1000', () => {
+  expect(add('1,2,3000,32,5')).toBe(40);
+})
