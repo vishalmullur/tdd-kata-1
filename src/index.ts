@@ -10,16 +10,21 @@ export const add = (numbers?: string) => {
     const stringParts = numbers.split('\n');
     let delimieter;
 
-    // When delimiter includes multiple chars, it is enclosed within square brackets
-    // Hence, we start slice at 3 (//[) and end with 'length -1' (]) to find the actual chars in between
-    if (stringParts[0].endsWith(']')) {
+    // When there are multiple separate delimiters ([*][;]), each is given enclosed in a square bracked
+    // Hence, we check if the delimiters part contains multiple open brackets ([)
+    if ((stringParts[0].match(/\[/g) || []).length > 1) {
+      const delimieters = getDelimiters(stringParts[0].slice(2));
+      numbersArray = stringParts[1].split('').filter(s => !delimieters.includes(s));
+    } else if (stringParts[0].endsWith(']')) {
+      // When delimiter includes multiple chars, it is enclosed within square brackets
+      // Hence, we start slice at 3 (//[) and end with 'length -1' (]) to find the actual chars in between
       delimieter = stringParts[0].slice(3, stringParts[0].length - 1);
+      numbersArray = stringParts[1].split(delimieter);
     } else {
       // If delimieter is not enclosed within square brackets, the delimieter is a single char
       delimieter = stringParts[0].slice(2, 3);
+      numbersArray = stringParts[1].split(delimieter);
     }
-
-    numbersArray = stringParts[1].split(delimieter);
   } else {
     numbersArray = numbers.split(/,|\n/g);
   }
@@ -40,4 +45,15 @@ export const add = (numbers?: string) => {
       return currentNum > 1000 ? total : total + currentNum;
     }, 0);
   }
+}
+
+/**
+ * Given a string of delimiters enclosed in square brackets []
+ * returns array of delimiters
+ * 
+ * @param delimitersString string of type [*][;][,]
+ * @returns string array ['*',';',',']
+ */
+const getDelimiters = (delimitersString: string) => {
+  return delimitersString.split('').filter((s) => s !== '[' && s !== ']');
 }
