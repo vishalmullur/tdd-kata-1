@@ -1,0 +1,10 @@
+{
+  "name": "tdd-kata-1",
+  "version": "1.0.0",
+  "description": "Typescript project to demonstrate TDD",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Vishal Mullur",
+    "email": "mullurvishal@gmail.com"
+  }
+}
