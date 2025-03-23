@@ -8,4 +8,8 @@ describe('Add numbers test', () => {
   test('Input no arguments', () => {
     expect(add()).toBe(0);
   });
+
+  test('Input sigle number returns same number', () => {
+    expect(add('1')).toBe(1);
+  });
 })
