@@ -15,5 +15,9 @@ describe('Add numbers test', () => {
 
   test('Input two numbers returns their sum', () => {
     expect(add('1,2')).toBe(3);
-  })
+  });
+
+  test('Input only delimieter returns 0', () => {
+    expect(add(',')).toBe(0);
+  });
 })
