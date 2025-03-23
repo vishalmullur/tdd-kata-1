@@ -27,5 +27,9 @@ describe('Add numbers test', () => {
 
   test('Input \\n as delimiter returns sum', () => {
     expect(add("1,2\n3")).toBe(6);
+  });
+
+  test('Input custom delimiter returns sum', () => {
+    expect(add("//;\n1;2;3")).toBe(6);
   })
 })
