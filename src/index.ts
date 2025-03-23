@@ -26,6 +26,9 @@ export const add = (numbers?: string) => {
     if (negatives.length > 0) {
       throw new Error(`Negatives not allowed; ${negatives.join(', ')}`)
     }
-    return numbersArray.reduce((total, current) => total + Number(current), 0);
+    return numbersArray.reduce((total, current) => {
+      const currentNum = Number(current);
+      return currentNum > 1000 ? total : total + currentNum;
+    }, 0);
   }
 }
