@@ -7,5 +7,5 @@ describe('Add numbers test', () => {
 
   test('Input no arguments', () => {
     expect(add()).toBe(0);
-  })
+  });
 })
