@@ -6,5 +6,7 @@ export const add = (numbers?: string) => {
   const numbersArray = numbers.split(',');
   if (numbersArray.length === 1) {
     return Number(numbersArray[0]);
+  } else {
+    return numbersArray.reduce((total, current) => total + Number(current), 0);
   }
 }
