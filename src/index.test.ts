@@ -36,4 +36,8 @@ describe('Add numbers test', () => {
   test('Input negative numbers throws error', () => {
     expect(() => add("-1")).toThrow(new Error('Negatives not allowed; -1'))
   });
+
+  test('Input multiple negative throws error', () => {
+    expect(() => add('-1,-2,3,-4')).toThrow(new Error('Negatives not allowed; -1, -2, -4'));
+  })
 })
