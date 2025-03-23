@@ -39,5 +39,9 @@ describe('Add numbers test', () => {
 
   test('Input multiple negative throws error', () => {
     expect(() => add('-1,-2,3,-4')).toThrow(new Error('Negatives not allowed; -1, -2, -4'));
+  });
+
+  test('Input number greater than 1000 is ignored in sum', () => {
+    expect(add('1,1001,2')).toBe(3);
   })
 })
