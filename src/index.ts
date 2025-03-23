@@ -3,7 +3,7 @@ export const add = (numbers?: string) => {
     return 0;
   }
 
-  const numbersArray = numbers.split(',');
+  const numbersArray = numbers.split(/,|\n/g);
   if (numbersArray.length === 1) {
     return Number(numbersArray[0]);
   } else {
