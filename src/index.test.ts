@@ -43,5 +43,9 @@ describe('Add numbers test', () => {
 
   test('Input number greater than 1000 is ignored in sum', () => {
     expect(add('1,1001,2')).toBe(3);
-  })
+  });
+
+  test('Input custom delimiter of any length returns sum', () => {
+    expect(add("//[****]\n1****2****3")).toBe(6);
+  });
 })
