@@ -6,5 +6,8 @@
   "author": {
     "name": "Vishal Mullur",
     "email": "mullurvishal@gmail.com"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
   }
 }
