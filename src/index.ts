@@ -79,7 +79,7 @@ const getDelimiters = (delimitersString: string) => {
 
     const delimieter = subString.slice(start + 1, end);
     dels.push(delimieter);
-    newIndex = end + 1;
+    newIndex = newIndex + end + 1;
   }
   
   return dels;
