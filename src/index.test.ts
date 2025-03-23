@@ -51,5 +51,9 @@ describe('Add numbers test', () => {
 
   test('Input multiple custom delimiters', () => {
     expect(add("//[*][;]\n1*2;3")).toBe(6);
+  });
+
+  test('Input multiple custom delimiters of any length', () => {
+    expect(add("//[***][;;;]\n1***2;;;3")).toBe(6);
   })
 })
