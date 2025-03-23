@@ -48,4 +48,8 @@ describe('Add numbers test', () => {
   test('Input custom delimiter of any length returns sum', () => {
     expect(add("//[****]\n1****2****3")).toBe(6);
   });
+
+  test('Input multiple custom delimiters', () => {
+    expect(add("//[*][;]\n1*2;3")).toBe(6);
+  })
 })
