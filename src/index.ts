@@ -16,7 +16,11 @@ export const add = (numbers?: string) => {
   }
 
   if (numbersArray.length === 1) {
-    return Number(numbersArray[0]);
+    const number = Number(numbersArray[0]);
+    if (number < 0) {
+      throw new Error(`Negatives not allowed; ${number}`);
+    }
+    return number;
   } else {
     return numbersArray.reduce((total, current) => total + Number(current), 0);
   }
