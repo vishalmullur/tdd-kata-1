@@ -22,6 +22,10 @@ export const add = (numbers?: string) => {
     }
     return number;
   } else {
+    const negatives = numbersArray.filter((number) => Number(number) < 0);
+    if (negatives.length > 0) {
+      throw new Error(`Negatives not allowed; ${negatives.join(', ')}`)
+    }
     return numbersArray.reduce((total, current) => total + Number(current), 0);
   }
 }
