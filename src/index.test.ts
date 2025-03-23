@@ -23,5 +23,9 @@ describe('Add numbers test', () => {
 
   test('Input unknown amount of numbers returns sum', () => {
     expect(add('1,2,3,4,5,6')).toBe(21);
+  });
+
+  test('Input \\n as delimiter returns sum', () => {
+    expect(add("1,2\n3")).toBe(6);
   })
 })
