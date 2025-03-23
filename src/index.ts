@@ -3,7 +3,18 @@ export const add = (numbers?: string) => {
     return 0;
   }
 
-  const numbersArray = numbers.split(/,|\n/g);
+  let numbersArray;
+
+  // For customer delimiters, the string 'numbers' starts with '//'
+  if (numbers.startsWith('//')) {
+    const stringParts = numbers.split('\n');
+    const delimieter = stringParts[0].slice(2, 3);
+
+    numbersArray = stringParts[1].split(delimieter);
+  } else {
+    numbersArray = numbers.split(/,|\n/g);
+  }
+
   if (numbersArray.length === 1) {
     return Number(numbersArray[0]);
   } else {
